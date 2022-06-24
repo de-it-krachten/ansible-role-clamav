@@ -19,6 +19,7 @@
 
 - name: Refresh the database  # noqa no-changed-when
   command: freshclam
+  tags: molecule-idempotence-notest
   
 - name: Deactivate example line
   replace:
