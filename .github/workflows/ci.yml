@@ -56,7 +56,7 @@ jobs:
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         include:
           - distro: centos7
@@ -72,6 +72,8 @@ jobs:
           - distro: ubuntu2004
             playbook: converge.yml
           - distro: ubuntu2204
+            playbook: converge.yml
+          - distro: fedora36
             playbook: converge.yml
 
     steps:
