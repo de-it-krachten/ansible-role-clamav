@@ -1,0 +1,96 @@
+---
+
+- name: Load variables based on OS type
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+        - "{{ ansible_distribution }}.yml"
+        - "family-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+        - "family-{{ ansible_os_family }}.yml"
+        - default.yml
+      paths:
+        - 'vars'
+
+- name: Install packages
+  package:
+    name: "{{ clamav_packages }}"
+
+- name: Refresh the database  # noqa no-changed-when
+  command: freshclam
+  
+- name: Deactivate example line
+  replace:
+    path: "{{ clamav_conf }}"
+    regexp: "^Example"
+    replace: "#Example"
+  notify: Restart clamav daemon
+
+- name: Configuring clamd
+  lineinfile:
+    path: "{{ clamav_conf }}"
+    insertafter: "(#)?{{ item.key }} .*"
+    regexp: "^{{ item.key }} .*"
+    line: "{{ item.key }} {{ item.value }}"
+  loop: "{{ clamav_scan_conf | dict2items }}"
+  notify: Restart clamav daemon
+
+- name: Configuring clamd (w/out removal)
+  blockinfile:
+    path: "{{ clamav_conf }}"
+    insertafter: "#OnAccessIncludePath"
+    block: |
+      OnAccessIncludePath /home
+      OnAccessIncludePath /data
+  notify: Restart clamav daemon
+
+# - name: Link /etc/clamd.conf -> /etc/clamd.d/scan.conf
+#   file:
+#     state: link
+#     src: /etc/clamd.d/scan.conf
+#     dest: /etc/clamd.conf
+
+- name: Set selinux boolean
+  seboolean:
+    name: antivirus_can_scan_system
+    state: yes
+    persistent: yes
+  when: 
+    - ansible_selinux is defined
+    - ansible_selinux['status'] == 'enabled'
+
+- name: Distribute freshclam service
+  template:
+    src: freshclam.service.j2
+    dest: /etc/systemd/system/freshclam.service
+    mode: "0644"
+
+- name: Start clamav@scan service
+  systemd:
+    name: "{{ clamav_scan_daemon }}"
+    enabled: true
+    state: started
+    daemon_reload: true
+
+- name: Stop clamav@scam service
+  systemd:
+    name: "{{ clamav_scam_daemon }}"
+    enabled: false
+    state: stopped
+    daemon_reload: true
+
+- name: Start freshclam service
+  systemd:
+    name: freshclam
+    enabled: true
+    state: started
+    daemon_reload: true
+
+#- name: Start daily updates of the virtus definitions
+#  copy:
+#    content: |
+#      #!/bin/sh
+#      /usr/bin/freshclam --quiet
+#    dest: /etc/cron.daily/freshclam
+#    mode: '0755'

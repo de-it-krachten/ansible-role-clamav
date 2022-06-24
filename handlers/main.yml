@@ -1,0 +1,9 @@
+---
+
+- name: Refresh clamav database
+  command: freshclam
+
+- name: Restart clamav daemon
+  service:
+    name: "{{ clamav_scan_daemon }}"
+    state: restarted

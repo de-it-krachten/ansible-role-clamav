@@ -1,0 +1,12 @@
+---
+
+# List of required packages
+clamav_packages:
+  - clamav
+  - clamav-daemon
+  - clamav-freshclam
+#  - clamav-scanner
+#  - clamtk
+
+# clamav main configuration file
+clamav_conf: /etc/clamav/clamd.conf

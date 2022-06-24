@@ -1,0 +1,20 @@
+---
+
+# clamav systemd services
+clamav_scan_daemon: clamd@scan
+clamav_scam_daemon: clamd@scam
+
+# clamav configuration
+clamav_scan_conf:
+  User:                   root
+  LocalSocket:            /var/run/clamd.scan/clamd.sock
+  LocalSocketGroup:       virusgroup
+  LocalSocketMode:        '660'
+  FixStaleSocket:         'yes'
+  ExcludePath:            "^(/proc/|/sys/)"
+  ScanOnAccess:           'yes'
+  OnAccessMaxFileSize:    25M
+  OnAccessExcludeRootUID: 'yes'
+  # OnAccessExcludeUname:   clamav
+  OnAccessPrevention:     'yes'
+  OnAccessDisableDDD:     'no'
