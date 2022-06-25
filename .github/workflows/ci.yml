@@ -73,6 +73,8 @@ jobs:
             playbook: converge.yml
           - distro: ubuntu2204
             playbook: converge.yml
+          - distro: fedora35
+            playbook: converge.yml
           - distro: fedora36
             playbook: converge.yml
 

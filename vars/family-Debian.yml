@@ -8,5 +8,11 @@ clamav_packages:
 #  - clamav-scanner
 #  - clamtk
 
+# clamav systemd services
+clamav_services:
+  - clamav-daemon
+
+clamav_services_disabled: []
+
 # clamav main configuration file
 clamav_conf: /etc/clamav/clamd.conf

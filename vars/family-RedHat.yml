@@ -9,5 +9,13 @@ clamav_packages:
 #  - clamav-scanner
 #  - clamtk
 
+# clamav systemd services
+clamav_services:
+  - clamd@scan
+  - freshclam
+
+clamav_services_disabled:
+  - clamd@scam
+
 # clamav main configuration file
 clamav_conf: /etc/clamd.d/scan.conf

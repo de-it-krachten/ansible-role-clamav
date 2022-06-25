@@ -67,26 +67,21 @@
     dest: /etc/systemd/system/freshclam.service
     mode: "0644"
 
-- name: Start clamav@scan service
+- name: Start clamav services
   systemd:
-    name: "{{ clamav_scan_daemon }}"
+    name: "{{ item }}"
     enabled: true
     state: started
     daemon_reload: true
+  loop: "{{ clamav_services }}"
 
-- name: Stop clamav@scam service
+- name: Stop clamav services
   systemd:
-    name: "{{ clamav_scam_daemon }}"
+    name: "{{ item }}"
     enabled: false
     state: stopped
     daemon_reload: true
-
-- name: Start freshclam service
-  systemd:
-    name: freshclam
-    enabled: true
-    state: started
-    daemon_reload: true
+  loop: "{{ clamav_services_disabled }}"
 
 #- name: Start daily updates of the virtus definitions
 #  copy:

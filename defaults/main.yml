@@ -1,9 +1,5 @@
 ---
 
-# clamav systemd services
-clamav_scan_daemon: clamd@scan
-clamav_scam_daemon: clamd@scam
-
 # clamav configuration
 clamav_scan_conf:
   User:                   root
