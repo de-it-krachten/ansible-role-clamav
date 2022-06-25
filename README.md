@@ -61,6 +61,7 @@ clamav_services:
   - clamd@scan
   - freshclam
 
+# clamav systemd services to disable
 clamav_services_disabled:
   - clamd@scam
 
@@ -82,6 +83,7 @@ clamav_packages:
 clamav_services:
   - clamav-daemon
 
+# clamav systemd services to disable
 clamav_services_disabled: []
 
 # clamav main configuration file

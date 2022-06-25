@@ -14,6 +14,7 @@ clamav_services:
   - clamd@scan
   - freshclam
 
+# clamav systemd services to disable
 clamav_services_disabled:
   - clamd@scam
 
