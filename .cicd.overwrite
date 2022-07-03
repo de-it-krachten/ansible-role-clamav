@@ -6,19 +6,3 @@ generic:
   role_short: clamav
   role_description: |
     Manage ClamAV
-
-github:
-  fail_fast: false
-
-platforms_add:
-  - name: Fedora 35
-    image: fedora35
-  - name: Fedora 36
-    image: fedora36
-
-molecule:
-  platforms_add:
-    - name: fedora35
-      image: "geerlingguy/docker-fedora35-ansible:latest"
-    - name: fedora36
-      image: "geerlingguy/docker-fedora36-ansible:latest"
