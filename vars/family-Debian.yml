@@ -17,3 +17,6 @@ clamav_services_disabled: []
 
 # clamav main configuration file
 clamav_conf: /etc/clamav/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/clamav/freshclam.conf
