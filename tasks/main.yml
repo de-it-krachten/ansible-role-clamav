@@ -17,6 +17,13 @@
   package:
     name: "{{ clamav_packages }}"
 
+- name: Deactivate example line (freshclam)
+  replace:
+    path: "{{ clamav_freshclam_conf }}"
+    regexp: "^Example"
+    replace: "#Example"
+  notify: Restart clamav daemon
+
 - name: Refresh the database  # noqa no-changed-when
   command: freshclam
   tags: molecule-idempotence-notest

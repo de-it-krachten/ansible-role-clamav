@@ -70,6 +70,9 @@ clamav_services_disabled:
 
 # clamav main configuration file
 clamav_conf: /etc/clamd.d/scan.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf
 </pre></code>
 
 ### vars/family-Debian.yml
@@ -91,6 +94,9 @@ clamav_services_disabled: []
 
 # clamav main configuration file
 clamav_conf: /etc/clamav/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf
 </pre></code>
 
 
