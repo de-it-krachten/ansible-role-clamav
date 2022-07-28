@@ -20,3 +20,6 @@ clamav_services_disabled:
 
 # clamav main configuration file
 clamav_conf: /etc/clamd.d/scan.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf

@@ -14,6 +14,7 @@ Supported platforms
 - Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
 - AlmaLinux 9
@@ -69,6 +70,9 @@ clamav_services_disabled:
 
 # clamav main configuration file
 clamav_conf: /etc/clamd.d/scan.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf
 </pre></code>
 
 ### vars/family-Debian.yml
@@ -90,6 +94,9 @@ clamav_services_disabled: []
 
 # clamav main configuration file
 clamav_conf: /etc/clamav/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf
 </pre></code>
 
 
@@ -99,7 +106,7 @@ clamav_conf: /etc/clamav/clamd.conf
 <pre><code>
 - name: sample playbook for role 'clamav'
   hosts: all
-  vars:
+  become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'clamav'
       include_role:
