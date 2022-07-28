@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.0.1...v1.1.0) (2022-07-28)
+
+
+### Bug Fixes
+
+* add freshclam activation ([6aacf47](https://github.com/de-it-krachten/ansible-role-clamav/commit/6aacf4751a7d577de35d65752b5ec8468f6e469c))
+
+
+### Features
+
+* Implement ansible-lint v6 support ([093a419](https://github.com/de-it-krachten/ansible-role-clamav/commit/093a419d3f201ec3e9e097ccedd596dda0da66f7))
+
 ## [1.0.1](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.0.0...v1.0.1) (2022-06-25)
 
 
