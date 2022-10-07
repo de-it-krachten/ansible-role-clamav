@@ -1,10 +1,10 @@
 ---
 
 - name: Refresh clamav database
-  command: freshclam
+  ansible.builtin.command: freshclam
 
 - name: Restart clamav daemon
-  service:
+  ansible.builtin.service:
     name: "{{ item }}"
     state: restarted
   loop: "{{ clamav_services }}"

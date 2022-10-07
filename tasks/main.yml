@@ -1,7 +1,7 @@
 ---
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -14,29 +14,29 @@
         - 'vars'
 
 - name: Install packages
-  package:
+  ansible.builtin.package:
     name: "{{ clamav_packages }}"
 
 - name: Deactivate example line (freshclam)
-  replace:
+  ansible.builtin.replace:
     path: "{{ clamav_freshclam_conf }}"
     regexp: "^Example"
     replace: "#Example"
   notify: Restart clamav daemon
 
 - name: Refresh the database  # noqa no-changed-when
-  command: freshclam
+  ansible.builtin.command: freshclam
   tags: molecule-idempotence-notest
   
 - name: Deactivate example line
-  replace:
+  ansible.builtin.replace:
     path: "{{ clamav_conf }}"
     regexp: "^Example"
     replace: "#Example"
   notify: Restart clamav daemon
 
 - name: Configuring clamd
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ clamav_conf }}"
     insertafter: "(#)?{{ item.key }} .*"
     regexp: "^{{ item.key }} .*"
@@ -45,7 +45,7 @@
   notify: Restart clamav daemon
 
 - name: Configuring clamd (w/out removal)
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: "{{ clamav_conf }}"
     insertafter: "#OnAccessIncludePath"
     block: |
@@ -60,7 +60,7 @@
 #     dest: /etc/clamd.conf
 
 - name: Set selinux boolean
-  seboolean:
+  ansible.posix.seboolean:
     name: antivirus_can_scan_system
     state: yes
     persistent: yes
@@ -69,13 +69,13 @@
     - ansible_selinux['status'] == 'enabled'
 
 - name: Distribute freshclam service
-  template:
+  ansible.builtin.template:
     src: freshclam.service.j2
     dest: /etc/systemd/system/freshclam.service
     mode: "0644"
 
 - name: Start clamav services
-  systemd:
+  ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: true
     state: started
@@ -83,7 +83,7 @@
   loop: "{{ clamav_services }}"
 
 - name: Stop clamav services
-  systemd:
+  ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: false
     state: stopped
