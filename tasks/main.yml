@@ -27,7 +27,7 @@
 - name: Refresh the database  # noqa no-changed-when
   ansible.builtin.command: freshclam
   tags: molecule-idempotence-notest
-  
+
 - name: Deactivate example line
   ansible.builtin.replace:
     path: "{{ clamav_conf }}"
@@ -64,7 +64,7 @@
     name: antivirus_can_scan_system
     state: yes
     persistent: yes
-  when: 
+  when:
     - ansible_selinux is defined
     - ansible_selinux['status'] == 'enabled'
 
@@ -90,10 +90,10 @@
     daemon_reload: true
   loop: "{{ clamav_services_disabled }}"
 
-#- name: Start daily updates of the virtus definitions
-#  copy:
-#    content: |
-#      #!/bin/sh
-#      /usr/bin/freshclam --quiet
-#    dest: /etc/cron.daily/freshclam
-#    mode: '0755'
+# - name: Start daily updates of the virtus definitions
+#   copy:
+#     content: |
+#       #!/bin/sh
+#       /usr/bin/freshclam --quiet
+#     dest: /etc/cron.daily/freshclam
+#     mode: '0755'
