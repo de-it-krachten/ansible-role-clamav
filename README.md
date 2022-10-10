@@ -44,18 +44,18 @@ Note:
 <pre><code>
 # clamav configuration
 clamav_scan_conf:
-  User:                   root
-  LocalSocket:            /var/run/clamd.scan/clamd.sock
-  LocalSocketGroup:       virusgroup
-  LocalSocketMode:        '660'
-  FixStaleSocket:         'yes'
-  ExcludePath:            "^(/proc/|/sys/)"
-  ScanOnAccess:           'yes'
-  OnAccessMaxFileSize:    25M
+  User: root
+  LocalSocket: /var/run/clamd.scan/clamd.sock
+  LocalSocketGroup: virusgroup
+  LocalSocketMode: '660'
+  FixStaleSocket: 'yes'
+  ExcludePath: "^(/proc/|/sys/)"
+  ScanOnAccess: 'yes'
+  OnAccessMaxFileSize: 25M
   OnAccessExcludeRootUID: 'yes'
-  # OnAccessExcludeUname:   clamav
-  OnAccessPrevention:     'yes'
-  OnAccessDisableDDD:     'no'
+  # OnAccessExcludeUname: clamav
+  OnAccessPrevention: 'yes'
+  OnAccessDisableDDD: 'no'
 </pre></code>
 
 
