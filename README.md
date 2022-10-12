@@ -5,6 +5,16 @@
 
 Manage ClamAV
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+- ansible.posix
+
 ## Platforms
 
 Supported platforms
@@ -34,19 +44,20 @@ Note:
 <pre><code>
 # clamav configuration
 clamav_scan_conf:
-  User:                   root
-  LocalSocket:            /var/run/clamd.scan/clamd.sock
-  LocalSocketGroup:       virusgroup
-  LocalSocketMode:        '660'
-  FixStaleSocket:         'yes'
-  ExcludePath:            "^(/proc/|/sys/)"
-  ScanOnAccess:           'yes'
-  OnAccessMaxFileSize:    25M
+  User: root
+  LocalSocket: /var/run/clamd.scan/clamd.sock
+  LocalSocketGroup: virusgroup
+  LocalSocketMode: '660'
+  FixStaleSocket: 'yes'
+  ExcludePath: "^(/proc/|/sys/)"
+  ScanOnAccess: 'yes'
+  OnAccessMaxFileSize: 25M
   OnAccessExcludeRootUID: 'yes'
-  # OnAccessExcludeUname:   clamav
-  OnAccessPrevention:     'yes'
-  OnAccessDisableDDD:     'no'
+  # OnAccessExcludeUname: clamav
+  OnAccessPrevention: 'yes'
+  OnAccessDisableDDD: 'no'
 </pre></code>
+
 
 ### vars/family-RedHat.yml
 <pre><code>
@@ -96,7 +107,7 @@ clamav_services_disabled: []
 clamav_conf: /etc/clamav/clamd.conf
 
 # freshclam_conf
-clamav_freshclam_conf: /etc/freshclam.conf
+clamav_freshclam_conf: /etc/clamav/freshclam.conf
 </pre></code>
 
 
@@ -109,6 +120,6 @@ clamav_freshclam_conf: /etc/freshclam.conf
   become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'clamav'
-      include_role:
+      ansible.builtin.include_role:
         name: clamav
 </pre></code>
