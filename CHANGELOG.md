@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.1.0...v1.2.0) (2022-10-12)
+
+
+### Features
+
+* Move to FQCN ([dd87270](https://github.com/de-it-krachten/ansible-role-clamav/commit/dd872705933ea8c56eeae6b031b4f01aa6bea5da))
+* Update CI to latest standards ([876e4be](https://github.com/de-it-krachten/ansible-role-clamav/commit/876e4be821959b5b11f93db60ec6339b017a70d2))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.0.1...v1.1.0) (2022-07-28)
 
 
