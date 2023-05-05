@@ -2,6 +2,7 @@
 
 - name: Refresh clamav database
   ansible.builtin.command: freshclam
+  changed_when: false
 
 - name: Restart clamav daemon
   ansible.builtin.service:
