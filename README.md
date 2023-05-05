@@ -60,6 +60,30 @@ clamav_scan_conf:
 </pre></code>
 
 
+### vars/family-Debian.yml
+<pre><code>
+# List of required packages
+clamav_packages:
+  - clamav
+  - clamav-daemon
+  - clamav-freshclam
+#  - clamav-scanner
+#  - clamtk
+
+# clamav systemd services
+clamav_services:
+  - clamav-daemon
+
+# clamav systemd services to disable
+clamav_services_disabled: []
+
+# clamav main configuration file
+clamav_conf: /etc/clamav/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/clamav/freshclam.conf
+</pre></code>
+
 ### vars/family-RedHat.yml
 <pre><code>
 # List of required packages
@@ -85,30 +109,6 @@ clamav_conf: /etc/clamd.d/scan.conf
 
 # freshclam_conf
 clamav_freshclam_conf: /etc/freshclam.conf
-</pre></code>
-
-### vars/family-Debian.yml
-<pre><code>
-# List of required packages
-clamav_packages:
-  - clamav
-  - clamav-daemon
-  - clamav-freshclam
-#  - clamav-scanner
-#  - clamtk
-
-# clamav systemd services
-clamav_services:
-  - clamav-daemon
-
-# clamav systemd services to disable
-clamav_services_disabled: []
-
-# clamav main configuration file
-clamav_conf: /etc/clamav/clamd.conf
-
-# freshclam_conf
-clamav_freshclam_conf: /etc/clamav/freshclam.conf
 </pre></code>
 
 
