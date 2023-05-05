@@ -26,6 +26,7 @@ Supported platforms
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
 - Debian 10 (Buster)
@@ -33,8 +34,8 @@ Supported platforms
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 35
 - Fedora 36
+- Fedora 37
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -58,6 +59,30 @@ clamav_scan_conf:
   OnAccessDisableDDD: 'no'
 </pre></code>
 
+
+### vars/family-Debian.yml
+<pre><code>
+# List of required packages
+clamav_packages:
+  - clamav
+  - clamav-daemon
+  - clamav-freshclam
+#  - clamav-scanner
+#  - clamtk
+
+# clamav systemd services
+clamav_services:
+  - clamav-daemon
+
+# clamav systemd services to disable
+clamav_services_disabled: []
+
+# clamav main configuration file
+clamav_conf: /etc/clamav/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/clamav/freshclam.conf
+</pre></code>
 
 ### vars/family-RedHat.yml
 <pre><code>
@@ -86,30 +111,6 @@ clamav_conf: /etc/clamd.d/scan.conf
 clamav_freshclam_conf: /etc/freshclam.conf
 </pre></code>
 
-### vars/family-Debian.yml
-<pre><code>
-# List of required packages
-clamav_packages:
-  - clamav
-  - clamav-daemon
-  - clamav-freshclam
-#  - clamav-scanner
-#  - clamtk
-
-# clamav systemd services
-clamav_services:
-  - clamav-daemon
-
-# clamav systemd services to disable
-clamav_services_disabled: []
-
-# clamav main configuration file
-clamav_conf: /etc/clamav/clamd.conf
-
-# freshclam_conf
-clamav_freshclam_conf: /etc/clamav/freshclam.conf
-</pre></code>
-
 
 
 ## Example Playbook
@@ -117,7 +118,7 @@ clamav_freshclam_conf: /etc/clamav/freshclam.conf
 <pre><code>
 - name: sample playbook for role 'clamav'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   tasks:
     - name: Include role 'clamav'
       ansible.builtin.include_role:
