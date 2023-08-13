@@ -1,0 +1,35 @@
+---
+
+# List of required packages
+clamav_packages:
+  - clamav
+  - clamav-database
+
+# clamav systemd services
+clamav_services:
+  - clamd
+  - freshclam
+
+# clamav systemd services to disable
+clamav_services_disabled: []
+
+# clamav main configuration file
+clamav_conf: /etc/clamd.conf
+
+# freshclam_conf
+clamav_freshclam_conf: /etc/freshclam.conf
+
+# clamav configuration
+clamav_scan_conf:
+  User: root
+  LocalSocket: /var/run/clamd.scan/clamd.sock
+  LocalSocketGroup: vscan
+  LocalSocketMode: '660'
+  FixStaleSocket: 'yes'
+  ExcludePath: "^(/proc/|/sys/)"
+  ScanOnAccess: 'yes'
+  OnAccessMaxFileSize: 25M
+  OnAccessExcludeRootUID: 'yes'
+  # OnAccessExcludeUname: clamav
+  OnAccessPrevention: 'yes'
+  OnAccessDisableDDD: 'no'
