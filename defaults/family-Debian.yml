@@ -20,3 +20,18 @@ clamav_conf: /etc/clamav/clamd.conf
 
 # freshclam_conf
 clamav_freshclam_conf: /etc/clamav/freshclam.conf
+
+# clamav configuration
+clamav_scan_conf:
+  User: root
+  LocalSocket: /var/run/clamd.scan/clamd.sock
+  LocalSocketGroup: virusgroup
+  LocalSocketMode: '660'
+  FixStaleSocket: 'yes'
+  ExcludePath: "^(/proc/|/sys/)"
+  ScanOnAccess: 'yes'
+  OnAccessMaxFileSize: 25M
+  OnAccessExcludeRootUID: 'yes'
+  # OnAccessExcludeUname: clamav
+  OnAccessPrevention: 'yes'
+  OnAccessDisableDDD: 'no'
