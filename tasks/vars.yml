@@ -30,5 +30,4 @@
   when: vars[item.key] is undefined and __defaults_vars[item.key] is defined
   loop: "{{ __defaults_vars | dict2items }}"
   loop_control:
-    label:
-      - "{{ item.key }}: {{ item.value }}"
+    label: "{{ item.key }}={{ item.value }}"
