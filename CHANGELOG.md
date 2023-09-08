@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.3.0...v1.3.1) (2023-09-08)
+
+
+### Bug Fixes
+
+* Fix loop label to string ([6695d59](https://github.com/de-it-krachten/ansible-role-clamav/commit/6695d59c768d9a7e0e8dbe73288831d112ef6b2a))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.2.0...v1.3.0) (2023-08-30)
 
 
