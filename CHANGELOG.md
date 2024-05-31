@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.3.1...v1.4.0) (2024-05-31)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([a73e870](https://github.com/de-it-krachten/ansible-role-clamav/commit/a73e870803146bcbe1f23e80b72917656dd11d2e))
+
 ## [1.3.1](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.3.0...v1.3.1) (2023-09-08)
 
 
