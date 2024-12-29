@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.4.0...v1.5.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([dd641e6](https://github.com/de-it-krachten/ansible-role-clamav/commit/dd641e6af1a7d667da8df485d89cecfdeffbdd91))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.3.1...v1.4.0) (2024-05-31)
 
 
