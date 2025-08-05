@@ -6,3 +6,9 @@ generic:
   role_short: clamav
   role_description: |
     Manage ClamAV
+
+# Supported platforms
+platforms:
+  oraclelinux10:
+    ci: false
+    supported: false
