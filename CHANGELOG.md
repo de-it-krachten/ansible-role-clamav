@@ -1,3 +1,13 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.5.0...v1.6.0) (2025-08-06)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([bd51fd8](https://github.com/de-it-krachten/ansible-role-clamav/commit/bd51fd8653da821157bc1a193a2e8b6a26cdd5a6))
+* Add support for Debian 13 (Trixie) ([3651517](https://github.com/de-it-krachten/ansible-role-clamav/commit/36515174e0a3e6f11d4bc3b6b14c9fc03915b9db))
+* Add support for Red Hat Enterprise Linux 10 ([f1006f8](https://github.com/de-it-krachten/ansible-role-clamav/commit/f1006f8bc66a1641221568e66f9d8c0921175e37))
+* Add support for RockyLinux 10 ([2d5555f](https://github.com/de-it-krachten/ansible-role-clamav/commit/2d5555fc4bf90473080eb6d1b503662d3bafe7a7))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.4.0...v1.5.0) (2024-12-29)
 
 
