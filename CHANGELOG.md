@@ -1,3 +1,15 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.6.0...v1.7.0) (2026-04-08)
+
+
+### Features
+
+* Added support for Fedora 43 ([7296cef](https://github.com/de-it-krachten/ansible-role-clamav/commit/7296ceff2ce5da9f0c2330f3f66efafcd33ba6b4))
+* Added support for Ubuntu 26.04 LTS ([7c574db](https://github.com/de-it-krachten/ansible-role-clamav/commit/7c574dbef77e9fa55b77f6926f509260d7f3e3c8))
+* Drop support for Fedora 41 ([8709b13](https://github.com/de-it-krachten/ansible-role-clamav/commit/8709b136f8dca7eee1bad7b6b337f7393ba74e40))
+* Drop support for openSUSE Leap 15 ([eba7a35](https://github.com/de-it-krachten/ansible-role-clamav/commit/eba7a351d2682231676b14cc5a48f2373c35d0f8))
+* Drop support for SUSE Linux Enterprise 15 ([ac5dbcb](https://github.com/de-it-krachten/ansible-role-clamav/commit/ac5dbcb406905b8224e42903aa4571143479ec6d))
+* Drop support for Ubuntu 20.04 LTS ([7a2f2d5](https://github.com/de-it-krachten/ansible-role-clamav/commit/7a2f2d5d331a62d45950ed63fc72707c19a35a94))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.5.0...v1.6.0) (2025-08-06)
 
 
