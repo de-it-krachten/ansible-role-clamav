@@ -10,5 +10,6 @@ generic:
 # Supported platforms
 platforms:
   oraclelinux10:
-    ci: false
     supported: false
+    ci: false
+
