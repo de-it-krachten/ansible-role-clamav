@@ -12,7 +12,4 @@ platforms:
   oraclelinux10:
     supported: false
     ci: false
-  ubuntu2004:
-    supported: true
-    ci: true
 
