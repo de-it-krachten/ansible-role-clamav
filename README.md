@@ -72,6 +72,10 @@ clamav_conf: /etc/clamav/clamd.conf
 # freshclam_conf
 clamav_freshclam_conf: /etc/clamav/freshclam.conf
 
+# clamav update user
+clamav_user: clamav
+clamav_group: virusgroup
+
 # clamav configuration
 clamav_scan_conf:
   User: root
@@ -112,6 +116,10 @@ clamav_conf: /etc/clamd.d/scan.conf
 
 # freshclam_conf
 clamav_freshclam_conf: /etc/freshclam.conf
+
+# clamav update user
+clamav_user: clamupdate
+clamav_group: clamupdate
 
 # clamav configuration
 clamav_scan_conf:
