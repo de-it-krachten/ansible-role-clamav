@@ -1,3 +1,18 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.7.0...v1.8.0) (2026-07-26)
+
+
+### Bug Fixes
+
+* Fix freshclam not updating ([3a2d820](https://github.com/de-it-krachten/ansible-role-clamav/commit/3a2d8201c7cc8d6190c255867701fd76463b64d2))
+* Standarize vars.yml ([581d85b](https://github.com/de-it-krachten/ansible-role-clamav/commit/581d85b807ee23513aeb037e38ba3beaebb90025))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([10a5bc1](https://github.com/de-it-krachten/ansible-role-clamav/commit/10a5bc12469ed60a2e71bcd5a9804c6026a8660e))
+* Added support for Fedora 44 ([d48d81e](https://github.com/de-it-krachten/ansible-role-clamav/commit/d48d81e4cfb6c01bcafbf7b7ce734a04cbf91c36))
+* Drop support for Fedora 42 ([46e6a07](https://github.com/de-it-krachten/ansible-role-clamav/commit/46e6a078f75a279f97474d6fce583cf61afd78bb))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.6.0...v1.7.0) (2026-04-08)
 
 
