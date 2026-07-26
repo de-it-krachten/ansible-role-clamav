@@ -7,6 +7,17 @@
   ansible.builtin.package:
     name: "{{ clamav_packages }}"
 
+- name: Ensure group present
+  ansible.builtin.group:
+    name: "{{ clamav_group }}"
+    state: present
+
+- name: Update /var/lib/clamav owner/group
+  ansible.builtin.file:
+    path: /var/lib/clamav
+    owner: "{{ clamav_user }}"
+    group: "{{ clamav_group }}"
+
 - name: Deactivate example line (freshclam)
   ansible.builtin.replace:
     path: "{{ clamav_freshclam_conf }}"
@@ -55,8 +66,8 @@
     state: yes
     persistent: yes
   when:
-    - ansible_selinux is defined
-    - ansible_selinux['status'] == 'enabled'
+    - ansible_facts.selinux is defined
+    - ansible_facts.selinux['status'] == 'enabled'
 
 - name: Distribute freshclam service
   ansible.builtin.template:

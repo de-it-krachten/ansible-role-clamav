@@ -36,8 +36,8 @@ Supported platforms
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
 - Ubuntu 26.04 LTS
-- Fedora 42
 - Fedora 43
+- Fedora 44<sup>1</sup>
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -71,6 +71,10 @@ clamav_conf: /etc/clamav/clamd.conf
 
 # freshclam_conf
 clamav_freshclam_conf: /etc/clamav/freshclam.conf
+
+# clamav update user
+clamav_user: clamav
+clamav_group: virusgroup
 
 # clamav configuration
 clamav_scan_conf:
@@ -112,6 +116,10 @@ clamav_conf: /etc/clamd.d/scan.conf
 
 # freshclam_conf
 clamav_freshclam_conf: /etc/freshclam.conf
+
+# clamav update user
+clamav_user: clamupdate
+clamav_group: clamupdate
 
 # clamav configuration
 clamav_scan_conf:
