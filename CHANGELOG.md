@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.8.0...v1.9.0) (2026-10-13)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([bb34bd4](https://github.com/de-it-krachten/ansible-role-clamav/commit/bb34bd48a78cf94bccbd4985af4f6a20792195d2))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-clamav/compare/v1.7.0...v1.8.0) (2026-07-26)
 
 
